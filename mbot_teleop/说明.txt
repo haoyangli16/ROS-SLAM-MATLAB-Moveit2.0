@@ -1,0 +1,7 @@
+<键盘控制建图功能包>	
+	<该功能包定义了通过键盘控制gazebo模型移动实现建图功能>
+	<为自动导航提供map>
+	launch:一些launch文件，用于调用python文件
+	scripts:存放写好的python文件用于键盘控制gazebo实现通信
+	
+
