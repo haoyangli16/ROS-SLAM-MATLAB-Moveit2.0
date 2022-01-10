@@ -1,0 +1,10 @@
+<launch>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/> 
+    <param name="rate" value="50.0" />
+    <rosparam param="/source_list">[/wajueji/joint_states]</rosparam>
+  </node>
+
+  <node pkg="pudong_gazebo" name="row_pitch_control" type="row_pitch_control.py" output="screen" />
+
+</launch>

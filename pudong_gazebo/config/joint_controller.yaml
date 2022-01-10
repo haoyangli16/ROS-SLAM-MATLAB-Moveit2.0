@@ -1,0 +1,51 @@
+wajueji:
+  # Publish all joint states
+  joint_state_controller:
+      type: joint_state_controller/JointStateController
+      publish_rate: 50
+  # Controllers
+  t03_to_1480_position_controller:
+      type: position_controllers/JointPositionController
+      joint: t03_to_1480
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+  t1480_1_to_2_position_controller:
+      type: position_controllers/JointPositionController
+      joint: t1480_1_to_2
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+  t04_to_1050_position_controller:
+      type: position_controllers/JointPositionController
+      joint: t04_to_1050
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+  t1050_1_to_2_position_controller:
+      type: position_controllers/JointPositionController
+      joint: t1050_1_to_2
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+  t04_to_05_2_position_controller:
+      type: position_controllers/JointPositionController
+      joint: t04_to_05_2
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+  t04_to_05_1_position_controller:
+      type: position_controllers/JointPositionController
+      joint: t04_to_05_1
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+  chandou_to_06_position_controller:
+      type: position_controllers/JointPositionController
+      joint: chandou_to_06
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+  cheshen_to_1220_1_position_controller:
+      type: position_controllers/JointPositionController
+      joint: cheshen_to_1220_1
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+  yg1220_1_position_controller:
+      type: position_controllers/JointPositionController
+      joint: yg1220_1
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+  cheshen_to_1220_2_position_controller:
+      type: position_controllers/JointPositionController
+      joint: cheshen_to_1220_2
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+  yg1220_2_position_controller:
+      type: position_controllers/JointPositionController
+      joint: yg1220_2
+      pid: {p: 100.0, i: 0.01, d: 10.0}
+
