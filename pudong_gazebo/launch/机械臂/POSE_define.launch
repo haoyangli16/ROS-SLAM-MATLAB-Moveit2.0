@@ -1,0 +1,9 @@
+<launch>
+  <!--加载Gazebo模型-->
+  <include file="$(find pudong_gazebo)/launch/机械臂/model_pose.launch"/>
+  <!--打开joint_state_node节点-->
+  <include file="$(find pudong_gazebo)/launch/joint_state_node.launch"/>
+  <!--打开moveit并建立连接-->
+  <include file="$(find pudong_gazebo)/launch/moveit_excution.launch"/>
+
+</launch>
