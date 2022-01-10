@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="pudong"  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!--macro for wajueji description -->
+  <xacro:macro name="pudong">
+
+  <!--  A base_footprint link and joint for KDL solver  -->
+  <link name="base_footprint" />
+  <joint name="base_footprint_joint" type="fixed">
+     <parent link="base_footprint"/>
+     <child link="base_link"/>
+  </joint>
+
+  <!-- base_link      -->
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0 0 0.19446"
+        rpy="0 0 0" />
+      <mass
+        value="10000" />
+      <inertia
+        ixx="10833.3"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="10833.3"
+        iyz="0.0"
+        izz="20000" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--  cheshen  -->
+  <link
+    name="cheshen">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="3000" />
+      <inertia
+        ixx="2250"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="2250"
+        iyz="0.0"
+        izz="3375" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/cheshen.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.74902 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/cheshen.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--  joint: base_to_cheshen  -->
+  <joint
+    name="base_to_cheshen"
+    type="revolute">
+    <origin
+      xyz="0 0 0.72"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="cheshen" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-6.28"
+      upper="6.28"
+      effort="5000"
+      velocity="4" />
+    <dynamics
+      damping="1"
+      friction="10" />
+  </joint>
+
+  <!--  pjjq03      -->
+  <link name="pjjq03">
+    <inertial>
+      <origin
+        xyz="2.2911 3.7748E-15 1.2825"
+        rpy="0 0 0" />
+      <mass
+        value="1440.8" />
+      <inertia
+        ixx="321.25"
+        ixy="5.2749E-13"
+        ixz="-661.98"
+        iyy="3009.3"
+        iyz="1.7997E-13"
+        izz="2727.5" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq03.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.49804 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq03.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--   joint: cheshen_to_03     -->
+  <joint
+    name="cheshen_to_03"
+    type="revolute">
+    <origin
+      xyz="-0.009 0 1.0372"
+      rpy="0 -0.1 0" />
+    <parent
+      link="cheshen" />
+    <child
+      link="pjjq03" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.9"
+      upper="0.35"
+      effort="5000"
+      velocity="1" />
+    <dynamics
+      damping="1"
+      friction="80" />
+  </joint>
+
+
+  <!--  pjjq04    -->
+  <link
+    name="pjjq04">
+    <inertial>
+      <origin
+        xyz="0.9223 6.2172E-15 0.24134"
+        rpy="0 0 0" />
+      <mass
+        value="600.4" />
+      <inertia
+        ixx="26.656"
+        ixy="-1.7876E-14"
+        ixz="15.684"
+        iyy="564.47"
+        iyz="4.8971E-14"
+        izz="545.68" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq04.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0.66667 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq04.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--  joint: t03_to_04   -->
+  <joint
+    name="t03_to_04"
+    type="revolute">
+    <origin
+      xyz="5.4177 0 1.706"
+      rpy="0 1.2726 0" />
+    <parent
+      link="pjjq03" />
+    <child
+      link="pjjq04" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.8"
+      upper="1.0"
+      effort="5000"
+      velocity="1" />
+    <dynamics
+      damping="1"
+      friction="80" />
+  </joint>
+
+  <!--  chandou   -->
+  <link
+    name="chandou">
+    <inertial>
+      <origin
+        xyz="0.72017 3.3307E-15 0.569"
+        rpy="0 0 0" />
+      <mass
+        value="359.5" />
+      <inertia
+        ixx="94.627"
+        ixy="4.1355E-14"
+        ixz="-4.7801"
+        iyy="138.37"
+        iyz="7.1336E-14"
+        izz="169.06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/chandou.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.52941 0.54902 0.54902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/chandou.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- joint: t04_to_chandou  -->
+  <joint
+    name="t04_to_chandou"
+    type="revolute">
+    <origin
+      xyz="2.9111 0 0.15097"
+      rpy="0 1.4717 0" />  <!--  2.0  -->
+    <parent
+      link="pjjq04" />
+    <child
+      link="chandou" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.4"
+      upper="1.2"
+      effort="5000"
+      velocity="1" />
+    <dynamics
+      damping="1"
+      friction="80" />
+  </joint>
+
+  <!--  pjjq06   -->
+  <link
+    name="pjjq06">
+    <inertial>
+      <origin
+        xyz="-8.8818E-16 0 -0.314"
+        rpy="0 0 0" />
+      <mass
+        value="1.973" />
+      <inertia
+        ixx="1.2029"
+        ixy="1.7203E-16"
+        ixz="-8.3267E-17"
+        iyy="1.0753"
+        iyz="5.09E-17"
+        izz="0.1691" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq06.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq06.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- joint: chandou_to_06  -->
+  <joint
+    name="chandou_to_06"
+    type="revolute">
+    <origin
+      xyz="-0.10419 0 0.59088"
+      rpy="0 0.53327 0" />
+    <parent
+      link="chandou" />
+    <child
+      link="pjjq06" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-2.0"
+      upper="0.3"
+      effort="5000"
+      velocity="1" />
+    <dynamics
+      damping="1"
+      friction="80" />
+  </joint>
+
+  <!--Made by Li Yiyang in 06.11.2021-->
+  </xacro:macro>
+</robot>

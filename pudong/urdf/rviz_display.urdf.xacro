@@ -1,0 +1,20 @@
+<robot name="wagen" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- SLAM settings-->
+    <xacro:arg name="gpu" default="false"/>
+    <xacro:property name="gpu" value="false" />
+    <xacro:arg name="organize_cloud" default="false"/>
+    <xacro:property name="organize_cloud" value="false" />
+
+    <!-- Included robot urdf Files -->
+    <xacro:include filename="$(find pudong)/urdf/pudong.xacro" />
+    <xacro:pudong/>
+    <xacro:include filename="$(find pudong)/urdf/HDL-32E-1.urdf.xacro"/>
+    <xacro:HDL-32E-1/>
+    <xacro:include filename="$(find pudong)/urdf/HDL-32E-2.urdf.xacro"/>
+    <xacro:HDL-32E-2/>
+    <xacro:include filename="$(find pudong)/urdf/peijian.xacro" />
+    <xacro:peijian/>
+    <xacro:include filename="$(find pudong)/urdf/IMU.xacro" />
+    <xacro:IMU/>
+</robot>

@@ -1,0 +1,1010 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="pudong">
+
+  <!--  A base_footprint link and joint for KDL solver  -->
+  <link name="base_footprint" />
+  <joint name="base_footprint_joint" type="fixed">
+     <parent link="base_footprint"/>
+     <child link="base_link"/>
+   </joint>
+
+  <!-- base_link      -->
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.018171 -0.0017721 0.19446"
+        rpy="0 0 0" />
+      <mass
+        value="2592.7" />
+      <inertia
+        ixx="1069.7"
+        ixy="0.085575"
+        ixz="-2.7007"
+        iyy="689.73"
+        iyz="0.014558"
+        izz="1627.6" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--  cheshen  -->
+  <link
+    name="cheshen">
+    <inertial>
+      <origin
+        xyz="-0.83549 0.21412 0.58331"
+        rpy="0 0 0" />
+      <mass
+        value="7793.2" />
+      <inertia
+        ixx="5729.6"
+        ixy="-1496.5"
+        ixz="-549.49"
+        iyy="8160.3"
+        iyz="-525.9"
+        izz="11992" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/cheshen.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.74902 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/cheshen.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--  joint: base_to_cheshen  -->
+  <joint
+    name="base_to_cheshen"
+    type="continuous">
+    <origin
+      xyz="0 0 0.72"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="cheshen" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+
+  <!--  pjjq03      -->
+  <link name="pjjq03">
+    <inertial>
+      <origin
+        xyz="2.2911 3.7748E-15 1.2825"
+        rpy="0 0 0" />
+      <mass
+        value="1440.8" />
+      <inertia
+        ixx="321.25"
+        ixy="5.2749E-13"
+        ixz="-661.98"
+        iyy="3009.3"
+        iyz="1.7997E-13"
+        izz="2727.5" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq03.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.49804 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq03.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--   joint: cheshen_to_03     -->
+  <joint
+    name="cheshen_to_03"
+    type="revolute">
+    <origin
+      xyz="-0.009 0 1.0372"
+      rpy="0 0 0" />
+    <parent
+      link="cheshen" />
+    <child
+      link="pjjq03" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.9"
+      upper="0.3"
+      effort="0"
+      velocity="1" />
+  </joint>
+
+  <!-- link  yg1220_1_1   -->
+  <link
+    name="yg1220_1_1">
+    <inertial>
+      <origin
+        xyz="6.3838E-15 6.6613E-15 0.76602"
+        rpy="0 0 0" />
+      <mass
+        value="12.766" />
+      <inertia
+        ixx="3.6006"
+        ixy="-2.0103E-17"
+        ixz="8.5001E-16"
+        iyy="3.6026"
+        iyz="1.1691E-16"
+        izz="0.051461" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1220_1_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1220_1_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--  joint: cheshen_to_1220_1  -->
+  <joint
+    name="cheshen_to_1220_1"
+    type="revolute">
+    <origin
+      xyz="0.461 0.31 0.44"
+      rpy="0 0.55538 0" />
+    <parent
+      link="cheshen" />
+    <child
+      link="yg1220_1_1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.35"
+      upper="0.5"
+      effort="0"
+      velocity="1" />
+  </joint>
+
+  <!--    yg1220_1_2  -->
+  <link
+    name="yg1220_1_2">
+    <inertial>
+      <origin
+        xyz="5.8287E-15 3.1086E-15 0.75378"
+        rpy="0 0 0" />
+      <mass
+        value="8.7504" />
+      <inertia
+        ixx="2.1109"
+        ixy="6.2989E-19"
+        ixz="4.0658E-16"
+        iyy="2.1113"
+        iyz="6.698E-15"
+        izz="0.0084603" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1220_1_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1220_1_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--  joint: 1220_1_to_03   
+  <joint
+    name="1220_1_to_03"
+    type="revolute">
+    <origin
+      xyz="1.8012 0.31 1.548"
+      rpy="0 0 0" />
+    <parent
+      link="pjjq03" />
+    <child
+      link="yg1220_1_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.35"
+      upper="0.5"
+      effort="0"
+      velocity="1" />
+  </joint>-->
+
+  <!--  joint: 1220_1  -->
+  <joint
+    name="1220_1"
+    type="prismatic">
+    <origin
+      xyz="0 0 0.95471"
+      rpy="0 0 0" />
+    <parent
+      link="yg1220_1_1" />
+    <child
+      link="yg1220_1_2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.42"
+      upper="0.8"
+      effort="0"
+      velocity="1" />
+  </joint>
+
+  <!--    yg1220_2_1  -->
+  <link
+    name="yg1220_2_1">
+    <inertial>
+      <origin
+        xyz="4.885E-15 4.6629E-15 0.76602"
+        rpy="0 0 0" />
+      <mass
+        value="12.766" />
+      <inertia
+        ixx="3.6006"
+        ixy="-2.0289E-17"
+        ixz="7.1818E-16"
+        iyy="3.6026"
+        iyz="2.2196E-15"
+        izz="0.051461" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1220_2_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1220_2_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- joint: cheshen_to_1220_2  -->
+  <joint
+    name="cheshen_to_1220_2"
+    type="revolute">
+    <origin
+      xyz="0.461 -0.31 0.44"
+      rpy="0 0.55538 0" />
+    <parent
+      link="cheshen" />
+    <child
+      link="yg1220_2_1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.35"
+      upper="0.5"
+      effort="0"
+      velocity="1" />
+    <mimic
+      joint="cheshen_to_1220_1"
+      multiplier="1"
+      offset="0" />
+  </joint>
+
+  <!--  yg1220_2_2    -->
+  <link
+    name="yg1220_2_2">
+    <inertial>
+      <origin
+        xyz="4.2744E-15 3.3307E-15 0.75378"
+        rpy="0 0 0" />
+      <mass
+        value="8.7504" />
+      <inertia
+        ixx="2.1109"
+        ixy="-5.507E-18"
+        ixz="-1.5266E-16"
+        iyy="2.1113"
+        iyz="6.6736E-15"
+        izz="0.0084603" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1220_2_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1220_2_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--  joint: 1220_2   -->
+  <joint
+    name="1220_2"
+    type="prismatic">
+    <origin
+      xyz="0 0 0.95471"
+      rpy="0 0 0" />
+    <parent
+      link="yg1220_2_1" />
+    <child
+      link="yg1220_2_2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.42"
+      upper="0.8"
+      effort="0"
+      velocity="1" />
+    <mimic
+      joint="1220_1"
+      multiplier="1"
+      offset="0" />
+  </joint>
+
+  <!--    yg1480     -->
+  <link
+    name="yg1480">
+    <inertial>
+      <origin
+        xyz="2.2204E-15 1.0436E-14 0.88447"
+        rpy="0 0 0" />
+      <mass
+        value="15.576" />
+      <inertia
+        ixx="5.7795"
+        ixy="3.8423E-17"
+        ixz="3.773E-16"
+        iyy="5.782"
+        iyz="-3.0915E-17"
+        izz="0.073091" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1480.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1480.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- joint: 03_to_1480   -->
+  <joint
+    name="03_to_1480"
+    type="revolute">
+    <origin
+      xyz="2.7108 0 2.1303"
+      rpy="0 1.4036 0" />
+    <parent
+      link="pjjq03" />
+    <child
+      link="yg1480" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.2"
+      upper="0.2"
+      effort="0"
+      velocity="1" />
+  </joint>
+
+  <!--  yg1480_2    -->
+  <link
+    name="yg1480_2">
+    <inertial>
+      <origin
+        xyz="3.9968E-15 9.1038E-15 0.91721"
+        rpy="0 0 0" />
+      <mass
+        value="15.423" />
+      <inertia
+        ixx="4.9237"
+        ixy="4.5322E-18"
+        ixz="4.8182E-16"
+        iyy="4.9253"
+        iyz="-1.1532E-16"
+        izz="0.021379" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1480_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.086275 0.21961 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1480_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- joint: 1480_1_to_2   -->
+  <joint
+    name="1480_1_to_2"
+    type="prismatic">
+    <origin
+      xyz="0 0 0.7811"
+      rpy="0 0 0" />
+    <parent
+      link="yg1480" />
+    <child
+      link="yg1480_2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.88"
+      upper="0.6"
+      effort="0"
+      velocity="1" />
+  </joint>
+
+  <!--  pjjq04    -->
+  <link
+    name="pjjq04">
+    <inertial>
+      <origin
+        xyz="0.9223 6.2172E-15 0.24134"
+        rpy="0 0 0" />
+      <mass
+        value="600.4" />
+      <inertia
+        ixx="26.656"
+        ixy="-1.7876E-14"
+        ixz="15.684"
+        iyy="564.47"
+        iyz="4.8971E-14"
+        izz="545.68" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq04.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0.66667 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq04.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--  joint: 03_to_04   -->
+  <joint
+    name="03_to_04"
+    type="revolute">
+    <origin
+      xyz="5.4177 0 1.706"
+      rpy="0 1.2726 0" />
+    <parent
+      link="pjjq03" />
+    <child
+      link="pjjq04" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.8"
+      upper="1.0"
+      effort="0"
+      velocity="1" />
+  </joint>
+
+  <!--  yg1050    -->>
+  <link
+    name="yg1050">
+    <inertial>
+      <origin
+        xyz="8.9706E-14 7.7716E-15 0.68295"
+        rpy="0 0 0" />
+      <mass
+        value="11.684" />
+      <inertia
+        ixx="2.6743"
+        ixy="3.8052E-18"
+        ixz="-4.0853E-16"
+        iyy="2.6763"
+        iyz="-1.2435E-16"
+        izz="0.046473" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1050.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1050.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- joint:  04_to_1050  -->
+  <joint
+    name="04_to_1050"
+    type="revolute">
+    <origin
+      xyz="0.40628 0 0.76931"
+      rpy="-3.1416 1.4945 -3.1416" />
+    <parent
+      link="pjjq04" />
+    <child
+      link="yg1050" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-0.1"
+      upper="0.3"
+      effort="0"
+      velocity="1" />
+  </joint>
+
+  <!-- yg1050_2   -->
+  <link
+    name="yg1050_2">
+    <inertial>
+      <origin
+        xyz="8.9706E-14 4.6629E-15 0.69365"
+        rpy="0 0 0" />
+      <mass
+        value="8.1381" />
+      <inertia
+        ixx="1.6884"
+        ixy="-2.173E-18"
+        ixz="1.1427E-16"
+        iyy="1.6889"
+        iyz="-1.8072E-15"
+        izz="0.0079769" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1050_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/yg1050_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--  joint: 1050_1_to_2   -->
+  <joint
+    name="1050_1_to_2"
+    type="prismatic">
+    <origin
+      xyz="0 0 1.0701"
+      rpy="0 0 0" />
+    <parent
+      link="yg1050" />
+    <child
+      link="yg1050_2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.1"
+      upper="0.95"
+      effort="0"
+      velocity="1" />
+  </joint>
+
+  <!--  pjjq05_1    -->
+  <link
+    name="pjjq05_1">
+    <inertial>
+      <origin
+        xyz="-4.4409E-15 3.5527E-15 0.305"
+        rpy="0 0 0" />
+      <mass
+        value="3.6933" />
+      <inertia
+        ixx="0.17974"
+        ixy="-1.2585E-18"
+        ixz="1.8865E-17"
+        iyy="0.18482"
+        iyz="-2.112E-17"
+        izz="0.0060665" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq05_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.49804 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq05_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!--  joint:  04_to_05_1  -->
+  <joint
+    name="04_to_05_1"
+    type="revolute">
+    <origin
+      xyz="2.4617 -0.17 0.17367"
+      rpy="0 0.84777 0" />
+    <parent
+      link="pjjq04" />
+    <child
+      link="pjjq05_1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.7"
+      upper="0.5"
+      effort="0"
+      velocity="1" />
+  </joint>
+
+  <!--  pjjq05_2   -->
+  <link
+    name="pjjq05_2">
+    <inertial>
+      <origin
+        xyz="-4.885E-15 4.4409E-15 0.305"
+        rpy="0 0 0" />
+      <mass
+        value="3.6933" />
+      <inertia
+        ixx="0.17974"
+        ixy="1.9711E-18"
+        ixz="5.5077E-17"
+        iyy="0.18482"
+        iyz="1.2286E-17"
+        izz="0.0060665" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq05_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.49804 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq05_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- joint: 04_to_05_2  -->
+  <joint
+    name="04_to_05_2"
+    type="revolute">
+    <origin
+      xyz="2.4617 0.17 0.17367"
+      rpy="0 0.84777 0" />
+    <parent
+      link="pjjq04" />
+    <child
+      link="pjjq05_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.7"
+      upper="0.5"
+      effort="0"
+      velocity="1" />
+    <mimic
+      joint="04_to_05_1"
+      multiplier="1"
+      offset="0" />
+  </joint>
+
+  <!--  chandou   -->
+  <link
+    name="chandou">
+    <inertial>
+      <origin
+        xyz="0.72017 3.3307E-15 0.569"
+        rpy="0 0 0" />
+      <mass
+        value="359.5" />
+      <inertia
+        ixx="94.627"
+        ixy="4.1355E-14"
+        ixz="-4.7801"
+        iyy="138.37"
+        iyz="7.1336E-14"
+        izz="169.06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/chandou.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.52941 0.54902 0.54902 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/chandou.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- joint: 04_to_chandou  -->
+  <joint
+    name="04_to_chandou"
+    type="revolute">
+    <origin
+      xyz="2.9111 0 0.15097"
+      rpy="0 1.4717 0" />
+    <parent
+      link="pjjq04" />
+    <child
+      link="chandou" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.1"
+      upper="0.6"
+      effort="0"
+      velocity="1" />
+  </joint>
+
+  <!--  pjjq06   -->
+  <link
+    name="pjjq06">
+    <inertial>
+      <origin
+        xyz="-8.8818E-16 0 -0.314"
+        rpy="0 0 0" />
+      <mass
+        value="16.973" />
+      <inertia
+        ixx="1.2029"
+        ixy="1.7203E-16"
+        ixz="-8.3267E-17"
+        iyy="1.0753"
+        iyz="5.09E-17"
+        izz="0.1691" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq06.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://pudong/meshes/pjjq06.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- joint: chandou_to_06  -->
+  <joint
+    name="chandou_to_06"
+    type="revolute">
+    <origin
+      xyz="-0.10419 0 0.59088"
+      rpy="0 0.53327 0" />
+    <parent
+      link="chandou" />
+    <child
+      link="pjjq06" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-2.0"
+      upper="0.3"
+      effort="0"
+      velocity="1" />
+  </joint>
+
+</robot>
