@@ -1,7 +1,0 @@
-<launch>
-
-  <!-- RViz -->
-  <arg name="rviz" default="true"/>
-  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="$(anon rviz)" respawn="true" output="screen" args="-d $(find pudong_gazebo)/rviz/velodyne_pointsx2.rviz" />
-
-</launch>

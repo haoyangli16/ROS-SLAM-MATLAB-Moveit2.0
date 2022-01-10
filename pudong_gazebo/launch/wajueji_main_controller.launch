@@ -1,6 +1,0 @@
-<launch>
-  <rosparam file="$(find pudong_gazebo)/config/wajueji_main.yaml" command="load"/>
-  <node name="wajueji_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" ns="/wajueji" args="wajueji_controller"/>
-
-</launch>
