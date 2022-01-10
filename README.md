@@ -3,4 +3,4 @@
 
 The project carries out excavator simulation through ROS platform. Including SLAM mapping navigation algorithm deployment, Moveit2.0 robot arm mining action simulation, matlab-ros joint communication display radar map, and control Gazebo movement.
 
-该分支包括键盘控制Gazebo小车移动；激光雷达建图；激光雷达功能包
+该分支包括激光雷达建图；键盘控制Gazebo小车移动；激光雷达功能包
