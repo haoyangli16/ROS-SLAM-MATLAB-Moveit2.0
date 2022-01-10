@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- Transmission params  -->
+
+<!-- wajueji main body -->
+
+    <!--  base_to_cheshen   -->
+    <transmission name="trans_base_to_cheshen">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="base_to_cheshen">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="base_to_cheshen_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!--  cheshen_to_03   -->
+    <transmission name="trans_cheshen_to_03">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="cheshen_to_03">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="cheshen_to_03_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!--  t03_to_04   -->
+    <transmission name="trans_t03_to_04">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="t03_to_04">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="t03_to_04_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!--  t04_to_chandou   -->
+    <transmission name="trans_t04_to_chandou">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="t04_to_chandou">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="t04_to_chandou_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+<!-- others -->
+
+    <!--  cheshen_to_1220_1   -->
+    <transmission name="trans_cheshen_to_1220_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="cheshen_to_1220_1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="cheshen_to_1220_1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!--  yg1220_1   -->
+    <transmission name="trans_yg1220_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="yg1220_1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="yg1220_1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!--  cheshen_to_1220_2   -->
+    <transmission name="trans_cheshen_to_1220_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="cheshen_to_1220_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="cheshen_to_1220_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!--  yg1220_2   -->
+    <transmission name="trans_yg1220_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="yg1220_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="yg1220_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <!--  t03_to_1480   -->
+    <transmission name="trans_t03_to_1480">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="t03_to_1480">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="t03_to_1480_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!--  t1480_1_to_2   -->
+    <transmission name="trans_t1480_1_to_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="t1480_1_to_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="t1480_1_to_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <!--  t04_to_1050   -->
+    <transmission name="trans_t04_to_1050">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="t04_to_1050">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="t04_to_1050_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!--  t1050_1_to_2   -->
+    <transmission name="trans_1050_1_to_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="t1050_1_to_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="t1050_1_to_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <!--  t04_to_05_1   -->
+    <transmission name="trans_t04_to_05_1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="t04_to_05_1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="t04_to_05_1_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <!--  t04_to_05_2   -->
+    <transmission name="trans_04_to_05_2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="t04_to_05_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="t04_to_05_2_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <!--  chandou_to_06   -->
+    <transmission name="trans_chandou_to_06">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="chandou_to_06">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="chandou_to_06_motor">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+<!--Made by Li Yiyang in 06.11.2021-->
+</robot>

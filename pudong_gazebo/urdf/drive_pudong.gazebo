@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<robot name="drive_pudong_gazebo" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/wajueji</robotNamespace>
+    </plugin>
+  </gazebo>
+
+<!--    wajueji dipan        -->
+  <gazebo reference="base_link">
+     <mu1 value="0.0" />
+     <mu2 value="0.0" />
+     <material>Gazebo/Grey</material>
+  </gazebo>
+
+<!--    wajueji cheshen        -->
+  <gazebo reference="cheshen">
+     <material>Gazebo/Yellow</material>
+  </gazebo>
+
+<!--    velodyne        -->
+  <gazebo reference="velodyne">
+     <material>Gazebo/Grey</material>
+  </gazebo>
+
+<!-- move controller -->
+  <gazebo>
+    <plugin name="wajueji_controller" filename="libgazebo_ros_planar_move.so">
+      <robotNamespace>/wajueji</robotNamespace>
+      <commandTopic>/cmd_vel</commandTopic>
+      <odometryTopic>/odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>40.0</odometryRate>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      </plugin>
+  </gazebo>
+
+<!--    pjjq03        -->
+  <gazebo reference="pjjq03">
+     <material>Gazebo/Orange</material>
+  </gazebo>
+
+<!--    pjjq04        -->
+  <gazebo reference="pjjq04">
+     <material>Gazebo/Green</material>
+  </gazebo>
+
+<!--    pjjq05_1        -->
+  <gazebo reference="pjjq05_1">
+     <material>Gazebo/Orange</material>
+  </gazebo>
+
+<!--    pjjq05_2        -->
+  <gazebo reference="pjjq05_2">
+     <material>Gazebo/Orange</material>
+  </gazebo>
+
+<!--    pjjq06        -->
+  <gazebo reference="pjjq06">
+     <material>Gazebo/Blue</material>
+  </gazebo>
+
+<!--    chandou       -->
+  <gazebo reference="chandou">
+     <material>Gazebo/Grey</material>
+  </gazebo>
+
+<!--    yg1050        -->
+  <gazebo reference="yg1050">
+     <material>Gazebo/Purple</material>
+  </gazebo>
+
+<!--    yg1050_2        -->
+  <gazebo reference="yg1050_2">
+     <material>Gazebo/Blue</material>
+  </gazebo>
+
+<!--    yg1220_1_1       -->
+  <gazebo reference="yg1220_1_1">
+     <material>Gazebo/Red</material>
+  </gazebo>
+
+<!--    yg1220_1_2       -->
+  <gazebo reference="yg1220_1_2">
+     <material>Gazebo/Red</material>
+  </gazebo>
+
+<!--    yg1220_2_1       -->
+  <gazebo reference="yg1220_2_1">
+     <material>Gazebo/Red</material>
+  </gazebo>
+
+<!--    yg1220_2_2       -->
+  <gazebo reference="yg1220_2_2">
+     <material>Gazebo/Red</material>
+  </gazebo>
+
+<!--    yg1480       -->
+  <gazebo reference="yg1480">
+     <material>Gazebo/Blue</material>
+  </gazebo>
+
+<!--    yg1480_2     -->
+  <gazebo reference="yg1480_2">
+     <material>Gazebo/Green</material>
+  </gazebo>
+<!--Made by Li Yiyang in 06.11.2021-->
+</robot>

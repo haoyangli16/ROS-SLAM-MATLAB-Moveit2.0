@@ -1,0 +1,12 @@
+<挖掘机gazebo模型功能包>	
+	<该功能包定义了挖掘机gazebo模型的相关参数>
+	<同时定义了多个launch文件用于验证题目要求的模型功能>
+	config: 用于控制挖掘机运动的yaml文件
+	launch: 详见launch文件夹内的“说明文档”
+	rviz: 为三维可视化文件
+	scripts: 一些python文件
+	urdf: 挖掘机gazebo模型的xacro文件
+	world: 场景模型文件
+	dig.py: 执行一次挖掘动作
+	Trans.py: 自动执行“初始化机械臂位姿”——>“自主导航”——>“机械臂挖掘”系列动作
+
