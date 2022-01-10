@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="wagen">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="wajueji">
+        <chain base_link="base_link" tip_link="chandou"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="home" group="wajueji">
+        <joint name="base_to_cheshen" value="0"/>
+        <joint name="cheshen_to_03" value="0"/>
+        <joint name="t03_to_04" value="0"/>
+        <joint name="t04_to_chandou" value="0"/>
+    </group_state>
+    <group_state name="1" group="wajueji">
+        <joint name="base_to_cheshen" value="0"/>
+        <joint name="cheshen_to_03" value="-0.2608"/>
+        <joint name="t03_to_04" value="-0.0023"/>
+        <joint name="t04_to_chandou" value="-0.8239"/>
+    </group_state>
+    <group_state name="2" group="wajueji">
+        <joint name="base_to_cheshen" value="0"/>
+        <joint name="cheshen_to_03" value="0.002"/>
+        <joint name="t03_to_04" value="-0.0023"/>
+        <joint name="t04_to_chandou" value="-0.8239"/>
+    </group_state>
+    <group_state name="3" group="wajueji">
+        <joint name="base_to_cheshen" value="0"/>
+        <joint name="cheshen_to_03" value="0.002"/>
+        <joint name="t03_to_04" value="0.2125"/>
+        <joint name="t04_to_chandou" value="-0.4841"/>
+    </group_state>
+    <group_state name="4" group="wajueji">
+        <joint name="base_to_cheshen" value="0"/>
+        <joint name="cheshen_to_03" value="0.002"/>
+        <joint name="t03_to_04" value="0.5602"/>
+        <joint name="t04_to_chandou" value="-0.1739"/>
+    </group_state>
+    <group_state name="5" group="wajueji">
+        <joint name="base_to_cheshen" value="0"/>
+        <joint name="cheshen_to_03" value="-0.6443"/>
+        <joint name="t03_to_04" value="0.7239"/>
+        <joint name="t04_to_chandou" value="0.417"/>
+    </group_state>
+    <group_state name="6" group="wajueji">
+        <joint name="base_to_cheshen" value="1.6414"/>
+        <joint name="cheshen_to_03" value="-0.6443"/>
+        <joint name="t03_to_04" value="0.7239"/>
+        <joint name="t04_to_chandou" value="0.417"/>
+    </group_state>
+    <group_state name="7" group="wajueji">
+        <joint name="base_to_cheshen" value="1.6414"/>
+        <joint name="cheshen_to_03" value="-0.6443"/>
+        <joint name="t03_to_04" value="0.7239"/>
+        <joint name="t04_to_chandou" value="-0.8239"/>
+    </group_state>
+    <group_state name="8" group="wajueji">
+        <joint name="base_to_cheshen" value="0"/>
+        <joint name="cheshen_to_03" value="-0.6443"/>
+        <joint name="t03_to_04" value="0.7239"/>
+        <joint name="t04_to_chandou" value="-0.8239"/>
+    </group_state>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="dipan" type="fixed" parent_frame="hhh" child_link="base_footprint"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="cheshen" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="imu" reason="Never"/>
+    <disable_collisions link1="base_link" link2="pjjq03" reason="Never"/>
+    <disable_collisions link1="base_link" link2="pjjq04" reason="Never"/>
+    <disable_collisions link1="base_link" link2="pjjq05_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="pjjq05_2" reason="Never"/>
+    <disable_collisions link1="base_link" link2="pjjq06" reason="Never"/>
+    <disable_collisions link1="base_link" link2="velodyne" reason="Never"/>
+    <disable_collisions link1="base_link" link2="velodyne2" reason="Never"/>
+    <disable_collisions link1="base_link" link2="yg1050" reason="Never"/>
+    <disable_collisions link1="base_link" link2="yg1050_2" reason="Never"/>
+    <disable_collisions link1="base_link" link2="yg1220_1_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="yg1220_1_2" reason="Never"/>
+    <disable_collisions link1="base_link" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="base_link" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="base_link" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="chandou" link2="cheshen" reason="Never"/>
+    <disable_collisions link1="chandou" link2="imu" reason="Never"/>
+    <disable_collisions link1="chandou" link2="pjjq03" reason="Never"/>
+    <disable_collisions link1="chandou" link2="pjjq04" reason="Adjacent"/>
+    <disable_collisions link1="chandou" link2="pjjq06" reason="Adjacent"/>
+    <disable_collisions link1="chandou" link2="velodyne" reason="Never"/>
+    <disable_collisions link1="chandou" link2="velodyne2" reason="Never"/>
+    <disable_collisions link1="chandou" link2="yg1050" reason="Never"/>
+    <disable_collisions link1="chandou" link2="yg1220_1_1" reason="Never"/>
+    <disable_collisions link1="chandou" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="chandou" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="chandou" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="cheshen" link2="imu" reason="Adjacent"/>
+    <disable_collisions link1="cheshen" link2="pjjq03" reason="Adjacent"/>
+    <disable_collisions link1="cheshen" link2="pjjq04" reason="Never"/>
+    <disable_collisions link1="cheshen" link2="pjjq05_1" reason="Never"/>
+    <disable_collisions link1="cheshen" link2="pjjq05_2" reason="Never"/>
+    <disable_collisions link1="cheshen" link2="pjjq06" reason="Never"/>
+    <disable_collisions link1="cheshen" link2="velodyne" reason="Adjacent"/>
+    <disable_collisions link1="cheshen" link2="velodyne2" reason="Adjacent"/>
+    <disable_collisions link1="cheshen" link2="yg1050" reason="Never"/>
+    <disable_collisions link1="cheshen" link2="yg1050_2" reason="Never"/>
+    <disable_collisions link1="cheshen" link2="yg1220_1_1" reason="Adjacent"/>
+    <disable_collisions link1="cheshen" link2="yg1220_2_1" reason="Adjacent"/>
+    <disable_collisions link1="cheshen" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="cheshen" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="imu" link2="pjjq03" reason="Never"/>
+    <disable_collisions link1="imu" link2="pjjq04" reason="Never"/>
+    <disable_collisions link1="imu" link2="pjjq05_1" reason="Never"/>
+    <disable_collisions link1="imu" link2="pjjq05_2" reason="Never"/>
+    <disable_collisions link1="imu" link2="pjjq06" reason="Never"/>
+    <disable_collisions link1="imu" link2="velodyne" reason="Never"/>
+    <disable_collisions link1="imu" link2="velodyne2" reason="Never"/>
+    <disable_collisions link1="imu" link2="yg1050" reason="Never"/>
+    <disable_collisions link1="imu" link2="yg1050_2" reason="Never"/>
+    <disable_collisions link1="imu" link2="yg1220_1_1" reason="Never"/>
+    <disable_collisions link1="imu" link2="yg1220_1_2" reason="Never"/>
+    <disable_collisions link1="imu" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="imu" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="imu" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="imu" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="pjjq03" link2="pjjq04" reason="Adjacent"/>
+    <disable_collisions link1="pjjq03" link2="pjjq05_1" reason="Never"/>
+    <disable_collisions link1="pjjq03" link2="pjjq05_2" reason="Never"/>
+    <disable_collisions link1="pjjq03" link2="pjjq06" reason="Never"/>
+    <disable_collisions link1="pjjq03" link2="velodyne" reason="Never"/>
+    <disable_collisions link1="pjjq03" link2="velodyne2" reason="Never"/>
+    <disable_collisions link1="pjjq03" link2="yg1050" reason="Never"/>
+    <disable_collisions link1="pjjq03" link2="yg1050_2" reason="Never"/>
+    <disable_collisions link1="pjjq03" link2="yg1220_1_1" reason="Never"/>
+    <disable_collisions link1="pjjq03" link2="yg1220_1_2" reason="Never"/>
+    <disable_collisions link1="pjjq03" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="pjjq03" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="pjjq03" link2="yg1480" reason="Adjacent"/>
+    <disable_collisions link1="pjjq03" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="pjjq04" link2="pjjq05_1" reason="Adjacent"/>
+    <disable_collisions link1="pjjq04" link2="pjjq05_2" reason="Adjacent"/>
+    <disable_collisions link1="pjjq04" link2="velodyne" reason="Never"/>
+    <disable_collisions link1="pjjq04" link2="velodyne2" reason="Never"/>
+    <disable_collisions link1="pjjq04" link2="yg1050" reason="Adjacent"/>
+    <disable_collisions link1="pjjq04" link2="yg1220_1_1" reason="Never"/>
+    <disable_collisions link1="pjjq04" link2="yg1220_1_2" reason="Never"/>
+    <disable_collisions link1="pjjq04" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="pjjq04" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="pjjq04" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="pjjq05_1" link2="pjjq05_2" reason="Never"/>
+    <disable_collisions link1="pjjq05_1" link2="pjjq06" reason="Default"/>
+    <disable_collisions link1="pjjq05_1" link2="velodyne" reason="Never"/>
+    <disable_collisions link1="pjjq05_1" link2="velodyne2" reason="Never"/>
+    <disable_collisions link1="pjjq05_1" link2="yg1050" reason="Never"/>
+    <disable_collisions link1="pjjq05_1" link2="yg1050_2" reason="Never"/>
+    <disable_collisions link1="pjjq05_1" link2="yg1220_1_1" reason="Never"/>
+    <disable_collisions link1="pjjq05_1" link2="yg1220_1_2" reason="Never"/>
+    <disable_collisions link1="pjjq05_1" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="pjjq05_1" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="pjjq05_1" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="pjjq05_1" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="pjjq05_2" link2="pjjq06" reason="Default"/>
+    <disable_collisions link1="pjjq05_2" link2="velodyne" reason="Never"/>
+    <disable_collisions link1="pjjq05_2" link2="velodyne2" reason="Never"/>
+    <disable_collisions link1="pjjq05_2" link2="yg1050" reason="Never"/>
+    <disable_collisions link1="pjjq05_2" link2="yg1050_2" reason="Never"/>
+    <disable_collisions link1="pjjq05_2" link2="yg1220_1_1" reason="Never"/>
+    <disable_collisions link1="pjjq05_2" link2="yg1220_1_2" reason="Never"/>
+    <disable_collisions link1="pjjq05_2" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="pjjq05_2" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="pjjq05_2" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="pjjq05_2" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="pjjq06" link2="velodyne" reason="Never"/>
+    <disable_collisions link1="pjjq06" link2="velodyne2" reason="Never"/>
+    <disable_collisions link1="pjjq06" link2="yg1050" reason="Never"/>
+    <disable_collisions link1="pjjq06" link2="yg1050_2" reason="Default"/>
+    <disable_collisions link1="pjjq06" link2="yg1220_1_1" reason="Never"/>
+    <disable_collisions link1="pjjq06" link2="yg1220_1_2" reason="Never"/>
+    <disable_collisions link1="pjjq06" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="pjjq06" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="pjjq06" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="pjjq06" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="velodyne" link2="velodyne2" reason="Never"/>
+    <disable_collisions link1="velodyne" link2="yg1050" reason="Never"/>
+    <disable_collisions link1="velodyne" link2="yg1050_2" reason="Never"/>
+    <disable_collisions link1="velodyne" link2="yg1220_1_1" reason="Never"/>
+    <disable_collisions link1="velodyne" link2="yg1220_1_2" reason="Never"/>
+    <disable_collisions link1="velodyne" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="velodyne" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="velodyne" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="velodyne" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="velodyne2" link2="yg1050" reason="Never"/>
+    <disable_collisions link1="velodyne2" link2="yg1050_2" reason="Never"/>
+    <disable_collisions link1="velodyne2" link2="yg1220_1_1" reason="Never"/>
+    <disable_collisions link1="velodyne2" link2="yg1220_1_2" reason="Never"/>
+    <disable_collisions link1="velodyne2" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="velodyne2" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="velodyne2" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="velodyne2" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="yg1050" link2="yg1050_2" reason="Adjacent"/>
+    <disable_collisions link1="yg1050" link2="yg1220_1_1" reason="Never"/>
+    <disable_collisions link1="yg1050" link2="yg1220_1_2" reason="Never"/>
+    <disable_collisions link1="yg1050" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="yg1050" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="yg1050" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="yg1050_2" link2="yg1220_1_1" reason="Never"/>
+    <disable_collisions link1="yg1050_2" link2="yg1220_1_2" reason="Never"/>
+    <disable_collisions link1="yg1050_2" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="yg1050_2" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="yg1050_2" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="yg1050_2" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="yg1220_1_1" link2="yg1220_1_2" reason="Adjacent"/>
+    <disable_collisions link1="yg1220_1_1" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="yg1220_1_1" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="yg1220_1_1" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="yg1220_1_1" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="yg1220_1_2" link2="yg1220_2_1" reason="Never"/>
+    <disable_collisions link1="yg1220_1_2" link2="yg1220_2_2" reason="Never"/>
+    <disable_collisions link1="yg1220_1_2" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="yg1220_1_2" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="yg1220_2_1" link2="yg1220_2_2" reason="Adjacent"/>
+    <disable_collisions link1="yg1220_2_1" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="yg1220_2_1" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="yg1220_2_2" link2="yg1480" reason="Never"/>
+    <disable_collisions link1="yg1220_2_2" link2="yg1480_2" reason="Never"/>
+    <disable_collisions link1="yg1480" link2="yg1480_2" reason="Adjacent"/>
+</robot>

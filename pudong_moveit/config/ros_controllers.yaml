@@ -1,0 +1,39 @@
+# Simulation settings for using moveit_sim_controllers
+moveit_sim_hw_interface:
+  joint_model_group: wajueji
+  joint_model_group_pose: home
+# Settings for ros_control_boilerplate control loop
+generic_hw_control_loop:
+  loop_hz: 300
+  cycle_time_error_threshold: 0.01
+# Settings for ros_control hardware interface
+hardware_interface:
+  joints:
+    - base_to_cheshen
+    - cheshen_to_03
+    - t03_to_04
+    - t04_to_05_1
+    - t04_to_1050
+    - t1050_1_to_2
+    - t04_to_chandou
+    - chandou_to_06
+    - t03_to_1480
+    - t1480_1_to_2
+    - cheshen_to_1220_1
+    - yg1220_1
+  sim_control_mode: 1  # 0: position, 1: velocity
+# Publish all joint states
+# Creates the /joint_states topic necessary in ROS
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+controller_list:
+  - name: wajueji/wajueji_controller
+    action_ns: follow_joint_trajectory
+    default: True
+    type: FollowJointTrajectory
+    joints:
+      - base_to_cheshen
+      - cheshen_to_03
+      - t03_to_04
+      - t04_to_chandou

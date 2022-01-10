@@ -1,0 +1,11 @@
+controller_list:
+  - name: fake_wajueji_controller
+    type: $(arg execution_type)
+    joints:
+      - base_to_cheshen
+      - cheshen_to_03
+      - t03_to_04
+      - t04_to_chandou
+initial:  # Define initial robot poses.
+  - group: wajueji
+    pose: home
