@@ -1,12 +1,8 @@
 # ROS-SLAM-MATLAB-Moveit2.0
-该项目通过ROS平台，进行挖掘机仿真。包括SLAM建图导航算法部署，Moveit2.0机械臂挖掘动作仿真，Matlab-ROS联合通信显示雷达图，并控制Gazebo移动。
+This project performs excavator simulation using the ROS platform. It includes SLAM mapping and navigation algorithm deployment, Moveit2.0 robotic arm mining action simulation, MATLAB-ROS joint communication to display radar maps, and control of Gazebo movement.
 
-The project carries out excavator simulation through ROS platform. Including SLAM mapping navigation algorithm deployment, Moveit2.0 robot arm mining action simulation, matlab-ros joint communication display radar map, and control Gazebo movement.
+pudong: Basic model, viewable in RViz.
 
-pudong:
-基础模型，可以rviz中查看。
+pudong_gazebo: Model usable in Gazebo, also includes some algorithms.
 
-pudong_gazebo:
-可以用于Gazebo中的模型，另包含一些算法。
- 
-整体演示链接：https://www.bilibili.com/video/BV1ia411q7nN?spm_id_from=333.999.0.0
+Overall demonstration link: https://www.bilibili.com/video/BV1ia411q7nN?spm_id_from=333.999.0.0
